@@ -16,14 +16,16 @@ Table in `/admin/list` uses `th:utext` for user-supplied name.
 Anyone can inject stored XSS code with form and
 attack executed by admin user when he opens `/admin/list`
 
-**Attack:** 
+**Attack:**
+
 1. Open http://localhost:8080
 2. Use e.g. `<script >alert("pwned");</script>my name` as your name.
 3. Enter something into address field and hit submit
 4. Open http://localhost:8080/admin/list
 5. Stored XSS success
 
-**Fix:** 
+**Fix:**
+
 1. Open `src/main/templates/list.html` 
 2. change `th:utext` to `th:text`
 
@@ -36,11 +38,13 @@ IDs are sequential and usually increased by one.
 It's easy to go through all users in database.
 
 **Attack:**
+
 1. Submit three different users with form
 2. open http://localhost:8080/unsubscribe/2
 3. Page is visible, easy to guess numbers
 
-**Fix:**: 
+**Fix:** 
+
 * No simple fix. Use long and random UUIDs for links. Requires adding new UUID in
 Signup. 
 * How long UUIDs are considered to be safe for this kind of information?
@@ -52,13 +56,15 @@ Multiple flaws present for this category. Some are trivial to fix other hard to 
 If application if deployed with HTTP admin passwords and auth tokens are
 susceptible for snooping.
 
-**Fix:** 
+**Fix:**
+
 1. Deploy with HTTPS
 
 ### Hardcoded admin password
 Default admin password is hardcoded in source code.
 
-Fix: 
+**Fix:**
+
 1. Application should generate random admin password at first run
 2. OR ask user to supply password at first run. 
 
@@ -77,7 +83,8 @@ security configuration for `/admin/api` endpoint.
 As a result API is visible for everyone who knows the URL. 
 Attacker can list, add, delete and modify data in SignupRepository.
 
-**Attack:** 
+**Attack:**
+
 1. Open http://localhost:8080:/admin/api (Use e.g. curl to make sure that there is no
    cached credential in browser)
 2. Spring data REST interface is fully visible and usable by anyone.
