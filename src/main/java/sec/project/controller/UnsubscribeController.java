@@ -18,7 +18,7 @@ public class UnsubscribeController {
     public String unsubscribe(@PathVariable Long id, Model model) {
         model.addAttribute("id", id);
         model.addAttribute("name", signupRepository.getOne(id).getName());
-        model.addAttribute("add", signupRepository.getOne(id).getAddress());
+        model.addAttribute("address", signupRepository.getOne(id).getAddress());
         return "unsubscribe";
     }
 

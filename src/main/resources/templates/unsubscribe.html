@@ -7,16 +7,15 @@
 
         <h1>Processing signup deletion</h1>
 
-        Hello, ${name}
-        <hr>
-        Are you sure you want to delete signup with address ${address}?
-        <br>
+        Hello, <span th:text="${name}">Name</span>
+        <hr />
+        Are you sure you want to delete signup with address <span th:text="${address}">Address</span>?
+
         Press button to confirm your deletion request
         <form th:action="@{/unsubscribe}" method="post">
             <input type="hidden" name="id" th:value="${id}" />
             <input type="hidden" name="confirm" value="confirm" />
             <input type="submit" value="Confirm" />
         </form>
-
     </body>
 </html>
