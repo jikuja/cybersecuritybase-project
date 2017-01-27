@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Admin: list</title>
+    </head>
+    <body>
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Email</th></tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="s : ${list}">
+                <!-- A3: XSS -->
+                <td th:utext="${s.name}">name here</td>
+                <td th:text="${s.address}">email here</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    </body>
+</html>

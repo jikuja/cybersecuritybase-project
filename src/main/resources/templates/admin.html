@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Welcome admin!</title>
+    </head>
+    <body>
+        <h1>Thank you! You have been logged in</h1>
+
+        Following services are available for admins:
+        <ul>
+            <li><a th:href="@{/admin/list}">List</a> of participants</li>
+            <li><a th:href="@{/admin/api}">REST API</a></li>
+            <li><a href="#">Change Password</a> <small>WIP. Not implemented but admin of real deplayments should change their</small> </li>
+        </ul>
+    </body>
+</html>
