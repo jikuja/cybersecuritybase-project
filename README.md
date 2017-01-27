@@ -92,6 +92,10 @@ Attacker can list, add, delete and modify data in SignupRepository.
 For example address http://localhost:8080/admin/api/signups/ list all information
 about user who have signup with service.
 
+**Fix:**
+1. Comment lines 25-26 in `src/main/java/sec/project/config/SecurityConfiguration`
+2. Uncomment lines 29-30. Now everything in `/admin` requires authentication
+
 ## Bonus round:
 `/h2-console/` is enabled by default in development enviroment.
 If application is started from fat jar h2-console and other
